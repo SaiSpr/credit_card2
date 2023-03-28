@@ -104,7 +104,7 @@ if st.button("Detection Result"):
     Sender ID: {sender_name}
     Receiver ID: {receiver_name}
     1. Client Id is: {step}\n
-    2. Type of Transaction: {x}\n
+
     3. Amount Sent: {amount}$\n
     4. Sender Balance Before Transaction: {oldbalanceorg}$\n
     5. Sender Balance After Transaction: {newbalanceorg}$\n
