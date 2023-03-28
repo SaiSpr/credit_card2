@@ -90,7 +90,7 @@ if st.button("Detection Result"):
     8. System Flag Fraud Status(Transaction amount greater than $200000): {isflaggedfraud}
                 """)
 
-    res = re.post(f"https://creditcard2-production.up.railway.app//predict",json=values)
+    res = re.post(f"https://creditcard2-production.up.railway.app/predict",json=values)
     json_str = json.dumps(res.json())
     resp = json.loads(json_str)
     
