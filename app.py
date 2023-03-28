@@ -4,7 +4,7 @@ import uvicorn
 import joblib
 import numpy as np
 from pydantic import BaseModel
-
+import pandas as pd 
 
 
 app = FastAPI(
@@ -38,6 +38,21 @@ class fraudDetection(BaseModel):
     oldbalancedest:float	
     newbalancedest:float	
     isflaggedfraud:float
+
+
+	
+	
+	
+	
+#importer dataframe des données clients tests
+
+df_test_prod = pd.read_csv('df_test_ok_prod_100_V7.csv', index_col=[0])
+# supprimer target
+df_test_prod.drop(columns=['TARGET'], inplace=True)
+# mettre SK_ID_CURR en index 
+df_test_prod_request  = df_test_prod.set_index('SK_ID_CURR')
+# Création list des clients 
+clients_id = df_test_prod["SK_ID_CURR"].tolist() 
 
 
 @app.post('/predict')
