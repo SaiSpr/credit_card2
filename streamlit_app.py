@@ -107,8 +107,21 @@ if st.button("Detection Result"):
                 """)
 
     res = re.post(f"https://creditcard2-production.up.railway.app/predict",json=values)
-    json_str = json.dumps(res.json())
-    resp = json.loads(json_str)
     
+    prediction = res
 
-    st.write(f"""### Result score is: {resp}.""")
+    st.write(prediction)
+    st.write(type(prediction))
+    
+    pred = prediction["prediction"]
+
+    probability_value_0 = round(prediction["probability_0"] * 100,2)
+    probability_value_1 = round(prediction["probability_1"] * 100,2)
+
+
+    st.header(f'*Résultat de la demande de crédit pour le client {client_id}*')
+
+    st.write(pred)
+    st.write(type(pred))
+
+    st.write(f"""### Result score is: {res}.""")
