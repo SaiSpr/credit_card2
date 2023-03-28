@@ -115,8 +115,8 @@ if st.button("Detection Result"):
     
 #     pred = prediction["prediction"]
 
-    probability_value_0 = round(prediction["probability_0"] * 100,2)
-    probability_value_1 = round(prediction["probability_1"] * 100,2)
+#     probability_value_0 = round(prediction["probability_0"] * 100,2)
+#     probability_value_1 = round(prediction["probability_1"] * 100,2)
 
 
     st.header(f'*Résultat de la demande de crédit pour le client {client_id}*')
