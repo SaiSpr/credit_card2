@@ -19,3 +19,4 @@ validators==0.20.0
 xgboost==1.7.3
 
 joblib
+matplotlib
