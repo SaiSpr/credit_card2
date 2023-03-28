@@ -108,10 +108,10 @@ client_id = int(client_id)
 
 st.header(f'*Résultat de la demande de crédit pour le client {client_id}*')
 
-st.write(pred)
-st.write(type(pred))
-if pred == 1:
-  st.error('Crédit Refusé')
+# st.write(pred)
+# st.write(type(pred))
+# if pred == 1:
+#   st.error('Crédit Refusé')
     
     
     
@@ -128,7 +128,7 @@ if pred == 1:
   
 if st.button("Detection Result"):
     values = {
-    "step": step,
+    "step": client_id,
     "types": types,
     "amount": amount,
     "oldbalanceorig": oldbalanceorg,
