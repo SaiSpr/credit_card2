@@ -137,7 +137,5 @@ if st.button("Detection Result"):
     json_str = json.dumps(res.json())
     resp = json.loads(json_str)
     
-    if sender_name=='' or receiver_name == '':
-        st.write("Error! Please input Transaction ID or Names of Sender and Receiver!")
-    else:
-        st.write(f"""### The '{x}' transaction that took place between {sender_name} and {receiver_name} is {resp[0]}.""")
+
+    st.write(f"""### Result score is: {resp}.""")
