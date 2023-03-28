@@ -48,6 +48,6 @@ def predict(data : fraudDetection):
 
     predictions = model.predict(features)
     if predictions == 1:
-        return {"fraudulent"}
+        return {"Bad"}
     elif predictions == 0:
-        return {"not fraudulent"}
+        return {"not Bad"}
