@@ -128,7 +128,6 @@ if st.button("Detection Result"):
 
     st.header(f'*Résultat de la demande de crédit pour le client {client_id}*')
 
-    st.write(pred)
-    st.write(type(pred))
+
 
     st.write(f"""### Result score is: {res}.""")
