@@ -13,6 +13,7 @@ import requests as re
 import numpy as np
 import pickle
 import json
+import pandas as pd
 
 
 st.title("Credit Card Fraud Detection Web App")
