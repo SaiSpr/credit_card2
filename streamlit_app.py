@@ -115,10 +115,10 @@ if st.button("Detection Result"):
 #     st.write(type(json_str))
 #     resp = json.loads(json_str)
     
-    prediction = res
+#     prediction = res
 
-    st.write(prediction)
-    st.write(type(prediction))
+    st.write(res)
+    st.write(type(res))
     
 #     pred = prediction["prediction"]
 
