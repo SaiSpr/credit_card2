@@ -36,7 +36,7 @@ cloudpickle==2.0.0
 #docker==6.0.1
 #et-xmlfile==1.1.0
 #evidently==0.2.3
-#fastapi==0.89.1
+
 #flatbuffers==23.1.21
 #fonttools==4.25.0
 #gast==0.4.0
