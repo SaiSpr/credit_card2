@@ -82,51 +82,35 @@ else:
   
   
  
-#---------------------#
-# VARIABLES STATIQUES #
-#---------------------#
+# Read 
+list_file = open('cols_shap_local.pickle','rb')
+cols_shap_local = pickle.load(list_file)
+print(cols_shap_local)
 
-#API_PRED = "https://api-creditscore.herokuapp.com/predict/"
-#API_SHAP = "https://api-creditscore.herokuapp.com/shap_client/"
-API_PRED = "https://creditcard2-production.up.railway.app/predict/"
-API_SHAP = "http://127.0.0.1:8000/shap_client/" 
-  
-data = joblib.load('sample_test_set.pickle')
-infos_client = joblib.load('infos_client.pickle')
-pret_client = joblib.load('pret_client.pickle')
-preprocessed_data = joblib.load('preprocessed_data.pickle')
-model = joblib.load('model.pkl')
 
-column_names = preprocessed_data.columns.tolist()
-expected_value = -2.9159221699244515
-threshold = 100-10.344827586206896
 
-classifier = model.named_steps['classifier']
-df_preprocess = model.named_steps['preprocessor'].transform(data)
-explainer = shap.TreeExplainer(classifier)
-generic_shap = explainer.shap_values(df_preprocess, check_additivity=False)
+#df_test_prod = pd.read_csv('df_test_ok_prod_100.csv', index_col=[0])
+df_test_prod = pd.read_csv('df_test_ok_prod_100_V7.csv', index_col=[0])
+df_test_prod['LOAN_DURATION'] = 1/df_test_prod['PAYMENT_RATE']
+df_test_prod.drop(columns=['TARGET'], inplace=True)
+df_test_prod_request  = df_test_prod.set_index('SK_ID_CURR')
 
-html="""           
-    <h1 style="font-size:400%; color:DarkSlateGrey; font-family:Soleil"> DASHBOARD <br>
-        <body style="font-size:100%, color:DarkSlateGrey, font-family:Sofia Pro"> <br>
-        </body>
-     </h1>
-"""
-st.markdown(html, unsafe_allow_html=True)
 
-#---------#
-# SIDEBAR #
-#---------#
 
-#Profile Client
-profile_ID = st.sidebar.selectbox('Sélectionnez un client :',
-                                  list(data.index))
-API_GET = API_PRED+(str(profile_ID))
-score_client = 100-int(re.get(API_GET).json()*100)
-if score_client < threshold:
-    st.sidebar.write("Prêt refusé")
-else:
-    st.sidebar.write("Prêt accordé.")
+df_train = pd.read_csv('df_train_prod_1.csv', index_col=[0])
+df_train['LOAN_DURATION'] = 1/df_train['PAYMENT_RATE']
+
+# Liste clients id sidebar 
+list_client_prod = df_test_prod['SK_ID_CURR'].tolist()
+client_id = st.sidebar.selectbox("Client Id list",list_client_prod)
+client_id = int(client_id)
+
+st.header(f'*Résultat de la demande de crédit pour le client {client_id}*')
+
+st.write(pred)
+st.write(type(pred))
+if pred == 1:
+  st.error('Crédit Refusé')
     
     
     
