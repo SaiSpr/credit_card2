@@ -88,7 +88,9 @@ def predict(data : fraudDetection):
         y_test_prob = [1 if prob_preds[i][1]> threshold else 0 for i in range(len(prob_preds))]
         
        
-        return {
-            "prediction": y_test_prob[0],
-            "probability_0" : prob_preds[0][0],
-            "probability_1" : prob_preds[0][1],}
+#         return {
+#             "prediction": y_test_prob[0],
+#             "probability_0" : prob_preds[0][0],
+#             "probability_1" : prob_preds[0][1],}
+
+        return y_test_prob
