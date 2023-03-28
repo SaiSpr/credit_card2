@@ -16,7 +16,7 @@ import json
 import pandas as pd
 
 
-st.title("Credit Card Fraud Detection Web App")
+st.title("Bank Loan Detection Web App")
 
 st.image("image.jpg")
 
@@ -61,7 +61,7 @@ else:
 
 
   
-  
+st.title("****Calculating the probability that a customer will repay their credit or not****")  
   
  
 # Read 
