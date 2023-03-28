@@ -19,3 +19,4 @@ uvloop
 joblib
 plotly
 matplotlib
+shap
