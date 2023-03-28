@@ -87,7 +87,7 @@ list_client_prod = df_test_prod['SK_ID_CURR'].tolist()
 client_id = st.sidebar.selectbox("Client Id list",list_client_prod)
 client_id = int(client_id)
 
-st.header(f'*Résultat de la demande de crédit pour le client {client_id}*')
+st.header(f'Credit request result for client {client_id}')
 
 # st.write(pred)
 # st.write(type(pred))
