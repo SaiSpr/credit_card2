@@ -80,7 +80,29 @@ step = client_id
     
     
     
-  
+#################################################
+def explain_plot(id, pred):
+    
+    pipe_prod = joblib.load('LGBM_pipe_version7.pkl')
+    df_test_prod_1 = df_test_prod.reset_index(drop=True)
+    df_test_prod_request_1 = df_test_prod_1.reset_index().set_index(['SK_ID_CURR', 'index'])
+    df_shap_local = df_test_prod_request_1[df_test_prod_request_1.columns[df_test_prod_request_1.columns.isin(cols_shap_local)]]
+    values_id_client = df_shap_local.loc[[id]]
+    
+
+    explainer = shap.TreeExplainer(pipe_prod.named_steps['LGBM'])
+      
+    observation = pipe_prod.named_steps["transform"].transform(df_shap_local)
+    observation_scale = pipe_prod.named_steps["scaler"].transform(observation)
+
+    shap_values = explainer.shap_values(observation_scale)
+
+    if pred == 1:
+        p = st_shap(shap.force_plot(explainer.expected_value[1], shap_values[1][values_id_client.index[0][1],:],values_id_client))
+    else:
+        p = st_shap(shap.force_plot(explainer.expected_value[0], shap_values[0][values_id_client.index[0][1],:],values_id_client))
+    return p
+###################################################  
   
   
 
