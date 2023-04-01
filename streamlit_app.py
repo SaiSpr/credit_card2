@@ -48,7 +48,7 @@ isflaggedfraud = 0
 st.title("****Calculating the probability that a customer will repay their credit or not****")  
 
 # logo sidebar 
-st.sidebar.image("Home_Credit.png", use_column_width=True)
+st.sidebar.image("home_credit.png", use_column_width=True)
   
  
 # Read 
