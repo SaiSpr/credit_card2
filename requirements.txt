@@ -20,3 +20,4 @@ joblib
 plotly
 matplotlib
 shap
+lightgbm==2.2.3
