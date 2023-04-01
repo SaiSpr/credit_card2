@@ -23,3 +23,4 @@ joblib
 matplotlib
 shap
 streamlit-echarts==0.4.0
+seaborn
