@@ -22,3 +22,4 @@ xgboost==1.7.3
 joblib
 matplotlib
 shap
+streamlit-echarts==0.4.0
