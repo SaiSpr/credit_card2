@@ -14,6 +14,7 @@ import numpy as np
 import pickle
 import json
 import pandas as pd
+from streamlit_echarts import st_echarts
 
 
 st.title("Bank Loan Detection Web App")
