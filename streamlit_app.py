@@ -6,7 +6,7 @@ import streamlit as st
 import joblib
 import streamlit.components.v1 as components
 import plotly.graph_objects as go
-import matplotlib as plt
+import matplotlib.pyplot as plt
 import plotly.express as px
 st.set_option('deprecation.showPyplotGlobalUse', False)
 import shap
@@ -228,7 +228,7 @@ if st.button("Detection Result"):
 
 
     #plot 
-    st.header(f'*Informations descriptives relatives au client {client_id}*'
+    st.header(f'*Descriptive information about the customer {client_id}*'
     )
     list_cols_dashboard = ['AMT_GOODS_PRICE', 'EXT_SOURCE_1', 'EXT_SOURCE_2', 'EXT_SOURCE_3', 'AGE', 'LOAN_DURATION',]
     for col in list_cols_dashboard:
