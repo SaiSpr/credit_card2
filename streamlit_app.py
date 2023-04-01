@@ -26,7 +26,7 @@ st.image("image.jpg")
 
 
 
-st.sidebar.header('Input Features of The Transaction')
+st.sidebar.header('Select the Client_id:')
 
 sender_name = 1
 receiver_name = 2
