@@ -30,7 +30,7 @@ async def favicon():
     return FileResponse(favicon_path)
 																	
 class fraudDetection(BaseModel):
-    step:int
+    step:float
 #     types:int
 #     amount:float	
 #     oldbalanceorig:float	
