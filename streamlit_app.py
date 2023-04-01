@@ -169,12 +169,12 @@ if st.button("Detection Result"):
     probability_value_1 = round(resp["probability_1"] * 100,2)
 
 
-    st.header(f'*Résultat de la demande de crédit pour le client {client_id}*')
+    st.header(f'*Result of the credit application for the customer {client_id} is:*')
 
     st.write(pred)
     st.write(type(pred))
     if pred == 1:
-      st.error('Crédit Refusé')
+      st.error('Loan Refused')
       option_1 = {
             "tooltip": {"formatter": "{a} <br/>{b} : {c}%"},
             "series": [
@@ -194,11 +194,11 @@ if st.button("Detection Result"):
         }
 
       st_echarts(options=option_1, width="100%", key=0)
-      st.header(f'*The data that most influenced the calculation of the prediction for the client {client_id}*')
+      st.header(f'*The data that most influenced the calculation of the prediction for the client {client_id} is:*')
 
       explain_plot(client_id, pred)
     else:
-        st.success('Crédit Accordé')
+        st.success('Loan Approved')
         option = {
             "tooltip": {"formatter": "{a} <br/>{b} : {c}%"},
             "series": [
@@ -219,12 +219,12 @@ if st.button("Detection Result"):
 
         st_echarts(options=option, width="100%", key=0)
 
-        st.header(f'*Les données qui ont le plus influencé le calcul de la prédiction pour le client {client_id}*')
+        st.header(f'*The data that most influenced the calculation of the prediction for the client {client_id} is:*')
         explain_plot(client_id, pred)
 
 
 
-    st.header("*Les variables les plus significatives par ordre décroissant et qui ont un pouvoir prédictif élevé.*")
+    st.header("*The most significant variables in descending order and which have a high predictive power.*")
 
     st.image("Shap_features_global.png", use_column_width=True)
 
@@ -234,7 +234,7 @@ if st.button("Detection Result"):
 
 
 
-    st.header(f"*Les informations personnelles du client  {client_id}*")
+    st.header(f"*Customer's personal information {client_id} :*")
     df_test_visu = df_test_prod[['SK_ID_CURR','AMT_CREDIT', 'AMT_GOODS_PRICE', 'AMT_INCOME_TOTAL', 'EXT_SOURCE_1', 'EXT_SOURCE_2', 'EXT_SOURCE_3', 'AGE', 'LOAN_DURATION']]
 
     st.write(df_informations_client[df_informations_client['SK_ID_CURR']==client_id].transpose())
@@ -268,7 +268,7 @@ if st.button("Detection Result"):
             
     option_3 = {
             #"title": {"text": "Comparaison du client avec la base de données"},
-            "legend": {"data": ["（Défaut paiment）", "（Non défaut paiment）", f"le client {client_id}"]},
+            "legend": {"data": ["（Payment default）", "（Non default payment）", f"the customer {client_id}"]},
             "radar": {
                 "indicator": [
                     {"name": "（Age）", "max": 70},
@@ -281,16 +281,16 @@ if st.button("Detection Result"):
             },
             "series": [
                 {
-                    "name": "（Client_id vs Base de données）",
+                    "name": "（Client_id vs. Database）",
                     "type": "radar",
                     "data": [
                         {
                             "value": [43.71 ,488972.41, 557778.53, 165611.76,  26481.74,20.76 ],
-                            "name": "（Défaut paiment）",
+                            "name": "（Payment default）",
                         },
                         {
                             "value": [40.28 ,542738.51, 602651.16, 169077.47, 27163.73, 21.68 ],
-                            "name": "（Non défaut paiment）",
+                            "name": "（Non default payment）",
                         },
                         {
                             "value": list(df_test_prod[df_test_prod['SK_ID_CURR']==client_id][["AGE","AMT_GOODS_PRICE","AMT_CREDIT","AMT_INCOME_TOTAL","AMT_ANNUITY","LOAN_DURATION"]].squeeze())
