@@ -96,6 +96,8 @@ if st.button("Detection Result"):
     st.write(f"""### These are the details:\n
 
     Client Id is: {step}\n
+    
+    type of client_id is : {type(step)}
 
                 """)
 
