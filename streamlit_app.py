@@ -16,6 +16,8 @@ import pickle
 import json
 import pandas as pd
 from streamlit_echarts import st_echarts
+import seaborn as sns 
+plt.style.use('ggplot')
 
 
 st.title("Bank Loan Detection Web App")
