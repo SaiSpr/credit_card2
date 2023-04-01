@@ -77,8 +77,12 @@ st.header(f'Credit request result for client {client_id}')
     
 step = client_id  
     
+
     
-    
+#################################################    
+def st_shap(plot, height=None):
+    shap_html = f"<head>{shap.getjs()}</head><body>{plot.html()}</body>"
+    components.html(shap_html, height=height)    
     
 #################################################
 def explain_plot(id, pred):
@@ -176,7 +180,7 @@ if st.button("Detection Result"):
         }
 
       st_echarts(options=option_1, width="100%", key=0)
-      st.header(f'*Les données qui ont le plus influencé le calcul de la prédiction pour le client {client_id}*')
+      st.header(f'*The data that most influenced the calculation of the prediction for the client {client_id}*')
 
       explain_plot(client_id, pred)
     else:
