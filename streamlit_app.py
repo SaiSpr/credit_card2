@@ -122,14 +122,73 @@ if st.button("Detection Result"):
     st.write(resp)
     st.write(type(resp))
     
-#     pred = prediction["prediction"]
+    pred = prediction["prediction"]
 
-#     probability_value_0 = round(prediction["probability_0"] * 100,2)
-#     probability_value_1 = round(prediction["probability_1"] * 100,2)
+    probability_value_0 = round(prediction["probability_0"] * 100,2)
+    probability_value_1 = round(prediction["probability_1"] * 100,2)
 
 
     st.header(f'*Résultat de la demande de crédit pour le client {client_id}*')
 
+    st.write(pred)
+    st.write(type(pred))
+    if pred == 1:
+      st.error('Crédit Refusé')
+      option_1 = {
+            "tooltip": {"formatter": "{a} <br/>{b} : {c}%"},
+            "series": [
+                {
+                    "name": "Pressure",
+                    "type": "gauge",
+                    "axisLine": {
+                        "lineStyle": {
+                            "width": 10,
+                        },
+                    },
+                    "progress": {"show": "true", "width": 10},
+                    "detail": {"valueAnimation": "true", "formatter": "{value}"},
+                    "data": [{"value": probability_value_1, "name": "Probabilité %"}],
+                }
+            ],
+        }
+
+      st_echarts(options=option_1, width="100%", key=0)
+      st.header(f'*Les données qui ont le plus influencé le calcul de la prédiction pour le client {client_id}*')
+
+      explain_plot(client_id, pred)
+    else:
+        st.success('Crédit Accordé')
+        option = {
+            "tooltip": {"formatter": "{a} <br/>{b} : {c}%"},
+            "series": [
+                {
+                    "name": "Pressure",
+                    "type": "gauge",
+                    "axisLine": {
+                        "lineStyle": {
+                            "width": 10,
+                        },
+                    },
+                    "progress": {"show": "true", "width": 10},
+                    "detail": {"valueAnimation": "true", "formatter": "{value}"},
+                    "data": [{"value": probability_value_0, "name": "Probabilité %"}],
+                }
+            ],
+        }
+
+        st_echarts(options=option, width="100%", key=0)
+
+        st.header(f'*Les données qui ont le plus influencé le calcul de la prédiction pour le client {client_id}*')
+        explain_plot(client_id, pred)
 
 
-    st.write(f"""### Result score is: {res}.""")
+
+    st.header("*Les variables les plus significatives par ordre décroissant et qui ont un pouvoir prédictif élevé.*")
+
+    st.image("Shap_features_global.png", use_column_width=True)
+
+#     st.header(f'*Résultat de la demande de crédit pour le client {client_id}*')
+
+
+
+#     st.write(f"""### Result score is: {res}.""")
