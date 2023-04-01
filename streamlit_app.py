@@ -100,6 +100,8 @@ if st.button("Detection Result"):
     type of client_id is : {type(step)}
     
     Values is : {values}
+    
+    Values tyep is : {type(values)}
 
                 """)
 
