@@ -107,17 +107,20 @@ if st.button("Detection Result"):
 
     res = re.post( url ="https://creditcard2-production.up.railway.app/predict", data = json.dumps(values))
 
-#     json_str = json.dumps(res.json())
+    json_str = json.dumps(res.json())
     
         
-#     st.write(json_str)
-#     st.write(type(json_str))
-#     resp = json.loads(json_str)
+    st.write(json_str)
+    st.write(type(json_str))
+    resp = json.loads(json_str)
     
 #     prediction = res
 
     st.write(res)
     st.write(type(res))
+    
+    st.write(resp)
+    st.write(type(resp))
     
 #     pred = prediction["prediction"]
 
