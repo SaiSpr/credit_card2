@@ -98,10 +98,12 @@ if st.button("Detection Result"):
     Client Id is: {step}\n
     
     type of client_id is : {type(step)}
+    
+    Values is : {values}
 
                 """)
 
-    res = re.post(f"https://creditcard2-production.up.railway.app/predict",json=values)
+    res = re.post( url ="https://creditcard2-production.up.railway.app/predict", data = json.dumps(values))
 
 #     json_str = json.dumps(res.json())
     
