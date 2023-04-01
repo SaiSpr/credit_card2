@@ -46,6 +46,9 @@ isflaggedfraud = 0
 
   
 st.title("****Calculating the probability that a customer will repay their credit or not****")  
+
+# logo sidebar 
+st.sidebar.image("Home_Credit.png", use_column_width=True)
   
  
 # Read 
@@ -73,10 +76,6 @@ client_id = int(client_id)
 
 st.header(f'Credit request result for client {client_id}')
 
-# st.write(pred)
-# st.write(type(pred))
-# if pred == 1:
-#   st.error('Crédit Refusé')
     
 step = client_id  
     
