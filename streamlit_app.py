@@ -112,9 +112,20 @@ def explain_plot(id, pred):
 ###################################################  
   
   
+# Filtrer les clients rembourser et non rembourser 
+df_train_rembourse = df_train[df_train['TARGET']== 0.0]
+df_train_not_rembourse = df_train[df_train['TARGET']== 1.0]
+
+# Sélectionner les colonnes pour le dashboard
+cols_dashbord = ['SK_ID_CURR','AMT_CREDIT', 'AMT_GOODS_PRICE', 'AMT_INCOME_TOTAL', 'EXT_SOURCE_1', 'EXT_SOURCE_2', 'EXT_SOURCE_3', 'AGE', 'LOAN_DURATION']
 
 
 
+df_train_not_rembourse = df_train_not_rembourse[cols_dashbord]
+df_train_rembourse = df_train_rembourse[cols_dashbord]
+
+###################################################  
+  
   
   
 if st.button("Detection Result"):
