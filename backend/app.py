@@ -31,13 +31,13 @@ async def favicon():
 																	
 class fraudDetection(BaseModel):
     step:int
-    types:int
-    amount:float	
-    oldbalanceorig:float	
-    newbalanceorig:float	
-    oldbalancedest:float	
-    newbalancedest:float	
-    isflaggedfraud:float
+#     types:int
+#     amount:float	
+#     oldbalanceorig:float	
+#     newbalanceorig:float	
+#     oldbalancedest:float	
+#     newbalancedest:float	
+#     isflaggedfraud:float
 
 
 	
@@ -59,7 +59,7 @@ clients_id = df_test_prod["SK_ID_CURR"].tolist()
 @app.post('/predict')
 def predict(data : fraudDetection):
                                                                                                                                                                                                                                 
-    features = np.array([[data.step, data.types, data.amount, data.oldbalanceorig, data.newbalanceorig, data.oldbalancedest, data.newbalancedest, data.isflaggedfraud]])
+    features = np.array([data.step])
 #     model = joblib.load('credit_fraud.pkl')
 
 #     predictions = model.predict(features)
