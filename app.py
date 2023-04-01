@@ -67,7 +67,7 @@ def predict(data : fraudDetection):
 #     elif predictions == 0:
 #         return {"not Bad"}
 
-    id = features[0][0]
+    id = features[0]
 
     if id not in clients_id:
         raise HTTPException(status_code=404, detail="client's id not found")
