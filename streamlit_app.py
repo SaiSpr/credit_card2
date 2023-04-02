@@ -77,7 +77,7 @@ client_id = int(client_id)
 st.header(f'Credit request result for client {client_id}')
 
     
-step = client_id  
+id = client_id  
     
 
     
@@ -129,15 +129,15 @@ df_train_rembourse = df_train_rembourse[cols_dashbord]
   
 if st.button("Detection Result"):
     values = {
-    "step": step,
+    "client_id": id,
     }
 
 
     st.write(f"""### These are the details:\n
 
-    Client Id is: {step}\n
+    Client Id is: {id}\n
     
-    type of client_id is : {type(step)}
+    type of client_id is : {type(id)}
     
     Values is : {values}
     
