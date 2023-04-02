@@ -5,13 +5,13 @@
 import streamlit as st
 import joblib
 import streamlit.components.v1 as components
-import plotly.graph_objects as go
+# import plotly.graph_objects as go
 import matplotlib.pyplot as plt
-import plotly.express as px
+# import plotly.express as px
 st.set_option('deprecation.showPyplotGlobalUse', False)
 import shap
 import requests as re
-import numpy as np
+# import numpy as np
 import pickle
 import json
 import pandas as pd
@@ -28,18 +28,18 @@ st.image("image.jpg")
 
 st.sidebar.header('Select the Client_id:')
 
-sender_name = 1
-receiver_name = 2
+# sender_name = 1
+# receiver_name = 2
 
-types = 4
+# types = 4
 
     
-amount = 4
-oldbalanceorg = 5
-newbalanceorg= 6
-oldbalancedest=7
-newbalancedest= 8
-isflaggedfraud = 0
+# amount = 4
+# oldbalanceorg = 5
+# newbalanceorg= 6
+# oldbalancedest=7
+# newbalancedest= 8
+# isflaggedfraud = 0
 
 
 
