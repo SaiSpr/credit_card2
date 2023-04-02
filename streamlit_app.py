@@ -1,5 +1,5 @@
 #-----------------------#
-# IMPORT DES LIBRAIRIES #
+# IMPORTING DES LIBRAIRIES #
 #-----------------------#
 
 import streamlit as st
@@ -27,21 +27,6 @@ st.image("image.jpg")
 
 
 st.sidebar.header('Select the Client_id:')
-
-# sender_name = 1
-# receiver_name = 2
-
-# types = 4
-
-    
-# amount = 4
-# oldbalanceorg = 5
-# newbalanceorg= 6
-# oldbalancedest=7
-# newbalancedest= 8
-# isflaggedfraud = 0
-
-
 
 
   
