@@ -30,7 +30,7 @@ async def favicon():
     return FileResponse(favicon_path)
 																	
 class fraudDetection(BaseModel):
-    step:float
+    client_id:float
 #     types:int
 #     amount:float	
 #     oldbalanceorig:float	
@@ -58,7 +58,7 @@ clients_id = df_test_prod["SK_ID_CURR"].tolist()
 @app.post('/predict')
 def predict(data : fraudDetection):
                                                                                                                                                                                                                                 
-    features = np.array([data.step])
+    features = np.array([data.client_id])
 #     model = joblib.load('credit_fraud.pkl')
 
 #     predictions = model.predict(features)
