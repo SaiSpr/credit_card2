@@ -121,12 +121,6 @@ if st.button("Detection Result"):
     st.write(f"""### These are the details:\n
 
     Client Id is: {id}\n
-    
-    type of client_id is : {type(id)}
-    
-    Values is : {values}
-    
-    Values tyep is : {type(values)}
 
                 """)
 
@@ -135,17 +129,17 @@ if st.button("Detection Result"):
     json_str = json.dumps(res.json())
     
         
-    st.write(json_str)
-    st.write(type(json_str))
+#     st.write(json_str)
+#     st.write(type(json_str))
     resp = json.loads(json_str)
     
 #     prediction = res
 
-    st.write(res)
-    st.write(type(res))
+#     st.write(res)
+#     st.write(type(res))
     
-    st.write(resp)
-    st.write(type(resp))
+#     st.write(resp)
+#     st.write(type(resp))
     
     pred = resp["prediction"]
 
