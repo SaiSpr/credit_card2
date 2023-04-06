@@ -8,7 +8,7 @@ import pandas as pd
 
 
 app = FastAPI(
-    title="Credit Card Fraud Detection API",
+    title="Bank Loan Detection API",
     description="""An API that utilises a Machine Learning model that detects if a credit card transaction is fraudulent or not based on the following features: hours, amount, transaction type etc.""",
     version="1.0.0", debug=True)
 
